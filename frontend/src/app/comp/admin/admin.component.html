@@ -1,0 +1,47 @@
+<!-- admin.component.html -->
+<div class="container">
+  <input type="text" placeholder="Search by id" [(ngModel)]="searchid" />
+  <button (click)="search(searchid)">Search</button>
+  <button (click)="fulllist()">Full List</button>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>date</th>
+        <th>Hour</th>
+        <th>Matiere</th>
+        <th>student Name</th>
+        <th>Student Group</th>
+        <th>Student Filliere</th>
+        <th>Absences</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let abs of absences" >
+        <tr
+        [style.color]="abs.student.nbrAbsences >= 10 ? 'red' : 'black'"
+        [style.backgroundColor]="abs.student.nbrAbsences >= 10 ? '#F5E6EA' : 'transparent'"
+
+      >
+          <td>{{ abs.id }}</td>
+          <td>{{ abs.date }}</td>
+          <td>{{ abs.hour }}</td>
+          <td>{{ abs.matiere }}</td>
+          <td>{{ abs.student.fname  }}</td>
+          <td>{{ abs.student.classId  }}</td>
+          <td>{{ abs.student.filliere  }}</td>
+          <td>{{ abs.student.nbrAbsences  }}</td>
+      </ng-container>
+      <!-- <ng-container *ngFor="let e of students">
+        <tr *ngIf="e.isPresent==false">
+            <td>{{ e.id }}</td>
+            <td>{{ e.fname }}</td>
+            <td>{{ e.lname }}</td>
+            <td>{{ e.filliere }}</td>
+            <td>{{ e.classId }}</td>
+            <td>{{ e.tele }}</td>
+        </tr>
+    </ng-container> -->
+    </tbody>
+  </table>
+</div>

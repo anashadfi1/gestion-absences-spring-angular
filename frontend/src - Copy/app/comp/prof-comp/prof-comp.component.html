@@ -1,0 +1,28 @@
+<p><strong>Present List</strong></p>
+<table class="cool-table">
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Lastname</th>
+            <th>email</th>
+            <th>Filliere</th>
+            <th>Group</th>
+            <th>Tele</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let e of etudiants">
+            <tr *ngIf="e.isPresent==false">
+                <td>{{ e.fname }}</td>
+                <td>{{ e.lname }}</td>
+                <td>{{ e.email }}</td>
+                <td>{{ e.filliere }}</td>
+                <td>{{ e.classId }}</td>
+                <td>{{ e.tele }}</td>
+                <td><button (click)="markAbsent(e)">Absent</button></td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+

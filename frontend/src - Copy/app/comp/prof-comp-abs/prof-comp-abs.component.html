@@ -1,0 +1,41 @@
+<p><strong>Absent List</strong></p>
+<ng-container *ngFor="let e of etudiants">
+<table class="cool-table">
+  
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Tele</th>
+        <th>Group</th>
+        <th>Filliere</th>
+        <th>Filliere</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr *ngIf="e.isPresent==true">
+          <td>{{ e.fname }}</td>
+          <td>{{ e.lname }}</td>
+          <td>{{ e.tele }}</td>
+          <td>{{ e.classId }}</td>
+          <td>{{ e.filliere}}</td>
+          <td><button (click)="markpresent(e)">Present</button></td>
+        </tr>
+      
+    </tbody>
+  </table>
+  
+  <div class="cool-field">
+    <label for="matiere"> Le Nom du cours:</label>
+    <input [(ngModel)]="matiere" type="text" id="matiere" name="matiere" placeholder="Entrer le nom du cours">
+    <label for="date">L'heure:</label>
+    <input [(ngModel)]="date" type="text" id="date" name="date" placeholder="Entrer l'heure">
+    <br>
+    <label for="hour">L'heure:</label>
+    <input [(ngModel)]="hour" type="text" id="hour" name="hour" placeholder="Entrer l'heure">
+    <br>
+    
+    <button class="finish-button" (click)="finish(e,matiere,date,hour)">Finish</button>
+</div>
+</ng-container>
